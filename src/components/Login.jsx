@@ -1,9 +1,14 @@
 
 import { useState } from "react";
 import Header from "./Header";
+import {checkValidData} from "../utils/validate";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
+
+  const handleButtonClick = () => {
+    checkValidData(email,password);//here can get email,password by 2 way (1)state (2)ref
+  }
   const toggleSignInForm = () =>{
     setIsSignInForm(!isSignInForm);
   }
@@ -40,7 +45,7 @@ const Login = () => {
           type="password"
           placeholder="Password"
         />
-        <button className="p-4 m-4 w-[300px] bg-[red] rounded-md">
+        <button className="p-4 m-4 w-[300px] bg-[red] rounded-md" onClick={handleButtonClick}>
         {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
         <p className="cursor-pointer" onClick={toggleSignInForm}>
