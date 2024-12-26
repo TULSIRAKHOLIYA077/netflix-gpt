@@ -5,7 +5,7 @@ export const checkValidData = (email,password,name) => {
 
   if(!isEmailValid) return "Email ID is not valid";
   if(!isPasswordValid) return "Minimum eight characters, at least one letter and one number";
-  if(!name) return "Write your Name";
+  //if(!name) return "Write your Name";
 
   return null;
 

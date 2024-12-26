@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import {checkValidData} from "../utils/validate";
-import {  createUserWithEmailAndPassword  } from "firebase/auth";
+import {  createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
 import { auth } from "../utils/firebase";
 
 
@@ -15,7 +15,7 @@ const Login = () => {
 
 
   const handleButtonClick = () => {
-    const message = checkValidData(email.current.value,password.current.value,name.current.value);
+    const message = checkValidData(email.current.value,password.current.value);
     setErrorMessage(message);
     if(message) return;    //    or
                       // if(message === null){
@@ -36,10 +36,21 @@ const Login = () => {
           const errorMessage = error.message;
           setErrorMessage(errorCode + "-" +errorMessage);
         });
-    }
-    else{
+    }else{
       // signin logic
-    }
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log(user);
+      
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setErrorMessage(errorCode + "-" +errorMessage);
+    });
+      }
   }
   const toggleSignInForm = () =>{
     setIsSignInForm(!isSignInForm);
@@ -63,6 +74,7 @@ const Login = () => {
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && <input
+          required
           ref={name}
           className="p-2 m-2 w-[300px] bg-black opacity-80 text-white border rounded-md"
           type="text"
