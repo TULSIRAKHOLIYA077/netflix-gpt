@@ -12,7 +12,7 @@ import { addUser, removeUser } from "../utils/userSlice";
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector(store => store.user);
+  const user = useSelector((store) => store.user);
   const handleSignOut = () =>{
     signOut(auth).then(() => {
       // Sign-out successful.
@@ -24,7 +24,8 @@ const Header = () => {
 
     //put it here cause we want to keep it always render and Header component will always stay . Did all the changes cause when i sign in or sign out onAuthChanged keeps track
     useEffect(()=>{
-      onAuthStateChanged(auth, (user) => {
+      //this onAuthStateChanged returns unsubscribe function
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
           const {uid, email, displayName, photoURL} = user;
@@ -36,6 +37,8 @@ const Header = () => {
           navigate("/")
           }
       });
+
+      return () => unsubscribe();
     }, [])
   
 

@@ -9,4 +9,4 @@ export const checkValidData = (email,password,name) => {
 
   return null;
 
-}
+} 

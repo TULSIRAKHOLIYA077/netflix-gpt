@@ -25,14 +25,14 @@ const Login = () => {
                       //   //create a new user
                       // }
     
-    //create a new user
+    //create a new user 
     if(!isSignInForm){
       //signup logic
       createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
           // Signed up 
           const user = userCredential.user;
-          
+
           updateProfile(user, {
             displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/124981059?v=4"
           }).then(() => {
@@ -56,7 +56,6 @@ const Login = () => {
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      console.log(user);      
     })
     .catch((error) => {
       const errorCode = error.code;
