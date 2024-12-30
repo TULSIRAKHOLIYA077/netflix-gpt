@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
+import { USER_AVTAR } from "../utils/constants";
 import {checkValidData} from "../utils/validate";
 import {  createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile  } from "firebase/auth";
 import { auth } from "../utils/firebase";
@@ -34,7 +35,7 @@ const Login = () => {
           const user = userCredential.user;
 
           updateProfile(user, {
-            displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/124981059?v=4"
+            displayName: name.current.value, photoURL: USER_AVTAR
           }).then(() => {
             // Profile updated!
             const {uid, email, displayName, photoURL} = auth.currentUser;

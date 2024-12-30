@@ -1,6 +1,7 @@
 
+import {LOGO} from "../utils/constants";
 import logo from "../Asset/logo.png";
- import userImage from "../Asset/userImage.png";
+import userImage from "../Asset/userImage.png";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
@@ -47,9 +48,9 @@ const Header = () => {
       <img className="w-28 h-12" src={logo} alt="" />
       <div className="flex">
         {user && user.photoURL ? (
-          <img className="w-9 h-9" src={user.photoURL} alt="User" />
+          <img className="w-9 h-9" src={user?.photoURL} alt="User" />
         ) : (
-          <img className="w-9 h-9" src={userImage} alt="Default User" /> // Fallback image if user is null
+          <img className="w-9 h-9" src={LOGO} alt="Default User" /> // Fallback image if user is null
         )}
         <button 
         className="font-bold text-white"
