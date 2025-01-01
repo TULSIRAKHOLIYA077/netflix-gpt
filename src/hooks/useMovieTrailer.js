@@ -3,12 +3,12 @@ import { addTrailerVideo } from "../utils/moviesSlice";
 import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
 
-const useMovieTrailer = () => {
+const useMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
   
 
   const getMovieVideos = async () => {
-    const data = await fetch('https://api.themoviedb.org/3/movie/1156593/videos?language=en-US', API_OPTIONS);//put id
+    const data = await fetch('https://api.themoviedb.org/3/movie/'+movieId+'/videos?language=en-US', API_OPTIONS);//put id
 
     const json = await data.json();
     console.log(json);
