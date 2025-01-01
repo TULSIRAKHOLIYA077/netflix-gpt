@@ -44,18 +44,18 @@ const Header = () => {
   
 
   return (
-    <div className="absolute w-[100%]  z-10 px-8 py-4 bg-black bg-opacity-50 flex justify-between items-center">
+    <div className="absolute w-[100%] h-[102.5%]  z-10 px-8 py-4 bg-black bg-opacity-5 bg-gradient-to-r from-black flex justify-between items-start">
       <img className="w-28 h-12" src={logo} alt="" />
-      <div className="flex">
+      <div className="flex gap-2">
         {user && user.photoURL ? (
           <img className="w-9 h-9" src={user?.photoURL} alt="User" />
         ) : (
           <img className="w-9 h-9" src={LOGO} alt="Default User" /> // Fallback image if user is null
         )}
         <button 
-        className="font-bold text-white"
+        className="bg-white flex items-center px-5 text-base rounded-lg text-black font-bold"
         onClick={handleSignOut}
-        >(Sign Out)</button>
+        >Sign Out</button>
       </div>
     </div>
   )
