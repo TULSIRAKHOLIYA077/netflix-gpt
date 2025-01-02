@@ -44,7 +44,7 @@ const Header = () => {
   
 
   return (
-    <div className="absolute w-[100%] h-[102.5%]  z-10 px-8 py-4 bg-black bg-opacity-5 bg-gradient-to-r from-black flex justify-between items-start">
+    <div className="absolute w-[100%] h-[100%]  z-10 px-8 py-4 bg-black bg-opacity-5 bg-gradient-to-r from-black flex justify-between items-start">
       <img className="w-28 h-12" src={logo} alt="" />
       <div className="flex gap-2">
         {user && user.photoURL ? (
