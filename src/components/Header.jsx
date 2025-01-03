@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
+import { toggleGptSearchView } from "../utils/gptSlice";
 
 
 const Header = () => {
@@ -41,27 +42,32 @@ const Header = () => {
 
       return () => unsubscribe();
     }, [])
+
+    const handleGptSearchClick = () => {
+      //toggle searchGpt by using redux store 
+      dispatch(toggleGptSearchView());
+    }
   
 
   return (
-    <div className="absolute w-[100%] h-[100%]  z-10 px-8 py-4 bg-black bg-opacity-5 bg-gradient-to-r from-black flex justify-between items-start">
+    <div className="absolute w-[100%]  z-40 px-8 py-4 flex justify-between items-start">
       <img className="w-28 h-12" src={logo} alt="" />
-      <div className="flex gap-2">
-        {user && user.photoURL ? (
-          <img className="w-9 h-9" src={user?.photoURL} alt="User" />
-        ) : (
-          <img className="w-9 h-9" src={LOGO} alt="Default User" /> // Fallback image if user is null
-        )}
-        <button 
-        className="bg-white flex items-center px-5 text-base rounded-lg text-black font-bold"
-        onClick={handleSignOut}
-        >Sign Out</button>
-      </div>
+      {user && (
+        <div className="flex items-center gap-2">
+          <button 
+            className="py-2 px-4 bg-purple-800 mx-4 text-white rounded-lg cursor-pointer" onClick={handleGptSearchClick}>
+              GPT Search
+          </button>
+          <img className="w-11 h-11 rounded-lg" src={user?.photoURL || userImage}  alt="" />
+          <button onClick={handleSignOut} className="font-bold bg-white px-2 py-2 rounded-lg">
+            Sign Out
+          </button>
+        </div>
+      )}
     </div>
   )
 }
 
 export default Header;
-
 
 
