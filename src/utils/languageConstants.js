@@ -1,7 +1,7 @@
 const lang = {
   en: {
     search:"Search",
-    gptSearchPlaceholder: ""
+    gptSearchPlaceholder: "What would you like to watch today?"
   },
   hindi: {
     search: "खोज",
