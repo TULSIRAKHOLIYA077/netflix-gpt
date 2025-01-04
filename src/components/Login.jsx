@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
-import { USER_AVTAR } from "../utils/constants";
+import { BG_URL, USER_AVTAR } from "../utils/constants";
 import {checkValidData} from "../utils/validate";
 import {  createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile  } from "firebase/auth";
 import { auth } from "../utils/firebase";
@@ -74,10 +74,10 @@ const Login = () => {
       
       {/* Background Image */} 
       <div className="absolute w-full h-full z-0 ">
-        <div className="absolute w-full h-full bg-gradient-to-r from-black via-transparent to-black opacity-50"></div>
+        <div className="absolute w-full h-[87.7%] bg-gradient-to-r from-black to-black opacity-40 mt-20"></div>
         <img
           className="w-full h-full object-cover"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/150c4b42-11f6-4576-a00f-c631308b1e43/web/IN-en-20241216-TRIFECTA-perspective_915a9055-68ad-4e81-b19a-442f1cd134dc_large.jpg"
+          src={BG_URL}
           alt="Background"
         />
       </div>

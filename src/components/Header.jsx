@@ -1,5 +1,5 @@
 
-import {LOGO} from "../utils/constants";
+import {LOGO, SUPPORTED_LANGUAGES} from "../utils/constants";
 import logo from "../Asset/logo.png";
 import userImage from "../Asset/userImage.png";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -50,10 +50,14 @@ const Header = () => {
   
 
   return (
-    <div className="absolute w-[100%]  z-40 px-8 py-4 flex justify-between items-start">
+    <div className="absolute w-[100%]  z-40 px-8 py-4 flex justify-between items-start bg-black bg-opacity-40">
       <img className="w-28 h-12" src={logo} alt="" />
       {user && (
         <div className="flex items-center gap-2">
+          <select className="p-2 bg-gray-900 text-white" name="" id="">
+            {SUPPORTED_LANGUAGES.map(lang => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>
+            )}
+          </select>
           <button 
             className="py-2 px-4 bg-purple-800 mx-4 text-white rounded-lg cursor-pointer" onClick={handleGptSearchClick}>
               GPT Search

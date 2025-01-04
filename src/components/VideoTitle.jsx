@@ -2,7 +2,7 @@ import { FaCaretRight } from "react-icons/fa";
 import { FaInfoCircle } from "react-icons/fa";
 const VideoTitle = ({title, overview}) => {
   return (
-    <div className="pt-[13%] px-12 absolute z-30 h-[100%] bg-black bg-opacity-40 text-white">
+    <div className="pt-[6%] px-12 absolute z-30 h-[87.7%] bg-black bg-opacity-40 text-white mt-20">
       <h1 className="text-6xl font-bold">{title}</h1>
       <p className="py-6 text-sm w-1/4">{overview}</p>
       <div className="my-4 flex gap-2">
