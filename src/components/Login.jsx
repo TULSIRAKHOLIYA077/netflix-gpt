@@ -69,12 +69,11 @@ const Login = () => {
   }
 
   return (
-    <div className="relative w-full h-[100vh]">
+    <div className="relative w-[100vw] h-[100vh]">
       <Header />
-      
       {/* Background Image */} 
       <div className="absolute w-full h-full z-0 ">
-        <div className="absolute w-full h-[87.7%] bg-gradient-to-r from-black to-black opacity-40 mt-20"></div>
+        <div className="absolute w-full h-[100%] bg-gradient-to-r from-black to-black opacity-40"></div>
         <img
           className="w-full h-full object-cover"
           src={BG_URL}
@@ -82,31 +81,31 @@ const Login = () => {
         />
       </div>
 
-      <form onSubmit={(e)=> e.preventDefault()} className="absolute z-10 top-1/3 left-1/3  bg-black opacity-85 flex flex-col items-center p-6 rounded-lg text-white bg-opacity-80">
+      <form onSubmit={(e)=> e.preventDefault()} className="absolute z-10 top-[30%] left-1/4 lg:left-1/3 bg-black opacity-85 flex flex-col items-center p-6 rounded-lg text-white bg-opacity-80 max-w-[400px] sm:w-[350px] sm:max-w-[400px] md:w-[650px] ">
         <h1 className="font-bold text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && <input
           required
           ref={name}
-          className="p-2 m-2 w-[300px] bg-black opacity-80 text-white border rounded-md"
+          className="p-2 m-2 w-[90%] md:w-[300px] bg-black opacity-80 text-white border rounded-md"
           type="text"
           placeholder="Full Name"
         />}
         <input
           ref={email}
-          className="p-2 m-2 w-[300px] bg-black opacity-80 text-white border rounded-md"
+          className="p-2 m-2 w-[90%] md:w-[300px] bg-black opacity-80 text-white border rounded-md"
           type="text"
           placeholder="Email Address"
         />
         <input
           ref={password}
-          className="p-2 m-2 w-[300px] bg-black opacity-80 text-white border rounded-md"
+          className="p-2 m-2 w-[90%] md:w-[300px] bg-black opacity-80 text-white border rounded-md"
           type="password"
           placeholder="Password"
         />
         <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
-        <button className="p-4 m-4 w-[300px] bg-[red] rounded-md" onClick={handleButtonClick}>
+        <button className="p-4 m-4 w-[90%] md:w-[300px] bg-[red] rounded-md" onClick={handleButtonClick}>
         {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
         <p className="cursor-pointer" onClick={toggleSignInForm}>

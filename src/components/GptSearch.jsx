@@ -6,13 +6,13 @@ const GptSearch = () =>{
   return (
     <div>
         <div className="fixed -z-10 w-full h-full">
-          <div className="absolute w-full h-[87.7%] bg-gradient-to-r from-black to-black opacity-40 mt-20"></div>
+          <div className="absolute w-full h-[100%] bg-gradient-to-r from-black to-black opacity-40"></div>
           <img
             className="w-full h-full object-cover"
             src={BG_URL}
             alt="Background"
           />
-      </div>
+        </div>
 
       <GptSearchBar/>
       <GptMovieSuggestions/>
